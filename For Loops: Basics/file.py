@@ -26,7 +26,12 @@ print(sum)
 
 # 5. Countdown by Fours - Print positive numbers starting at 2018, counting down by fours.
 
-for x in reversed(range(-2,2022,4)):
+for x in reversed(range(2,2022,4)):
+    print(x)
+
+#or
+
+for x in range(2018,0,-4):
     print(x)
 
 
