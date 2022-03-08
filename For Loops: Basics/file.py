@@ -30,6 +30,12 @@ for x in reversed(range(-2,2022,4)):
 # 6. Flexible Counter - Set three variables: lowNum, highNum, mult. Starting at lowNum and going through highNum, print only the integers that are a multiple of mult. 
 #    For example, if lowNum=2, highNum=9, and mult=3, the loop should print 3, 6, 9 (on successive lines) 
 
-for x in range(0,101,5):
-    if x % 5 == 0:
+
+lowNum = 0
+highNum = 101
+mult = 5
+
+
+for x in range(lowNum, highNum, mult):
+    if x % mult == 0:
         print(x)
