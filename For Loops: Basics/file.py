@@ -17,9 +17,12 @@ for x in range(1,101):
         print(x)
     
 # 4. Whoa. That Sucker's Huge - Add odd integers from 0 to 500,000, and print the final sum.
-for x in range(0,500001):
+sum = 0
+for x in range(0,500000):
     if x % 2 == 1:
-        print(x)
+        sum+= x
+print(sum)
+
 
 # 5. Countdown by Fours - Print positive numbers starting at 2018, counting down by fours.
 
@@ -34,7 +37,6 @@ for x in reversed(range(-2,2022,4)):
 lowNum = 0
 highNum = 101
 mult = 5
-
 
 for x in range(lowNum, highNum, mult):
     if x % mult == 0:
