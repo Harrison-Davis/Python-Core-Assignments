@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_recipe.css')}}">
+    <title>Edit Recipe</title>
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <div class="headerleft">
+                <h1>Edit {{recipe.recipe_name}}</h1>
+            </div>
+            <div class="headerright">
+                <a href="/">Dashboard</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="main">
+            <form action="/recipe/update/{{recipe.id}}", method="POST">
+                <div class="section">
+                    <label for="name">Name:</label>
+                    <input type="text" value="{{recipe.recipe_name}}"name="recipe_name">
+                </div>
+                <div class="section">
+                    <label for="description">Description:</label>
+                    <textarea name="description" id="description" cols="30" rows="10">{{recipe.description}}</textarea>
+                </div>
+                <div class="section">
+                    <label for="instructions">Instructions </label>
+                    <textarea name="instructions" id="instructions" cols="30" rows="10"> {{recipe.instructions}}</textarea>
+                </div>
+                <div class="section">
+                    <label for="date_made">Date Made On: </label>
+                    <input type="date" name="date_made" value="{{recipe.date_made}}">
+                </div>
+                <div class="section" >
+                    <label for="under_30">Made In Under 30 Minutes?</label>
+                    <div class="radio">
+                        <input type="radio" name="under_30" value="no" {% if recipe.under_30 == "no"%} checked {% endif %}>
+                        <label for="under_30">No</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="under_30" value="yes" {% if recipe.under_30 == "yes"%} checked {% endif %}>
+                        <label for="under_30">Yes</label>
+                    </div>
+                </div>
+                <input type="submit" value="Update Recipe">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

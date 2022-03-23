@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/view_instructions.css')}}">
+    <title>View Instructions</title>
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <div class="headerleft">
+                <h1>Recipe: {{recipe.recipe_name}}</h1>
+            </div>
+            <div class="headerright">
+                <a href="/">Dashboard</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+            <div class="section">
+                <h3>Description: </h3>
+                <p>{{ recipe.description }} </p>
+            </div>
+            <div class="section">
+                <h3>Instructions: </h3>
+                <p>{{recipe.instructions}}</p>
+            </div>
+            <div class="section">
+                <h3>Date Made On</h3>
+                <p>{{recipe.date_made}}</p>
+            </div>
+            <div class="section" >
+                <h3>Made In Under 30 Minutes?</h3>
+                <p>{{recipe.under_30}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

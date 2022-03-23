@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_recipes.css')}}">
+    <title>User Recipes</title>
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <div class="headerleft">
+                <h1>Welcome {{user.first_name}}!</h1>
+                <h3>These are your recipes</h3>
+            </div>
+            <div class="headerright">
+                <a href="/recipes/addnewrecipe">Create</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Under 30 Minutes?</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recipe in all_recipes %}
+                    <tr>
+                        <td id="name">{{ recipe.recipe_name }}</td>
+                        <td>{{ recipe.under_30}}</td>
+                        <td>
+                            <a href="/recipes/view_instructions/{{recipe.id}}"> View Instructions </a>
+                            {% if recipe.user_id == session['uuid'] %}
+                            <a href="/recipe/edit/{{recipe.id}}"> Edit </a>
+                            <a name="id" href="/recipe/destroy/{{recipe.id}}">Delete</a>
+                            {% else %}
+                            <span>Access denied</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
